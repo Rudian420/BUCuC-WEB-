@@ -1688,33 +1688,12 @@ https://templatemo.com/tm-583-festava-live
         document.getElementById('signup-form').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Collect form data
-            const data = {
-                name: document.getElementById('signup-name').value,
-                universityId: document.getElementById('signup-id').value,
-                email: document.getElementById('signup-main-email').value,
-                gsuiteEmail: document.getElementById('signup-gsuite-email').value,
-                password: document.getElementById('signup-password').value,
-                department: document.getElementById('signup-department').value,
-                phone: document.getElementById('signup-phone').value,
-                semester: document.getElementById('signup-semester').value,
-                gender: document.getElementById('signup-gender').value,
-                dob: document.getElementById('signup-dob').value,
-                facebook: document.getElementById('signup-facebook').value,
-                status: document.querySelector('input[name="membership-status"]:checked')?.value || '',
-                motivation: document.getElementById('signup-motivation').value,
-                terms: document.getElementById('signup-terms').checked ? 'Agreed' : 'Not Agreed',
-                action: 'signup' // <-- add this line
-            };
-
+            const formData = new FormData(document.getElementById('signup-form'));
             fetch('https://script.google.com/macros/s/AKfycby6N9D8A-rYdZtJmZyZKxjdgyhzko6YJVDkpok9xkkWhTj8ea5NTXrFMvzErs27E3_U/exec', {
                 method: 'POST',
-                body: JSON.stringify(data),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+                body: formData
             })
-            .then(res => res.text())
+            .then(res => res.json())
             .then(response => {
                 alert('Sign up successful!');
                 document.getElementById('signup-form').reset();
