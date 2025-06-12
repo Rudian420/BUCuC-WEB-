@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-              <meta name="description" content>
+        <meta name="description" content>
         <meta name="author" content>
         <!-- baal -->
         <title>BRAC University Cultural Club</title>
@@ -2198,7 +2198,10 @@ https://templatemo.com/tm-583-festava-live
         </script>
 
         <script>
-            const scriptUrl = "https://script.google.com/macros/s/AKfycbx62BkoxxYV0gOEvDPJhM8_fmeOUuC2mM8HGHLVTXlDMtvb6H9U01LOitln06T3D5Zj/exec"
+
+            function handleSubmit(e){
+                e.preventDefault();
+                const scriptUrl = "https://script.google.com/macros/s/AKfycbx62BkoxxYV0gOEvDPJhM8_fmeOUuC2mM8HGHLVTXlDMtvb6H9U01LOitln06T3D5Zj/exec"
 
             const formData = document.forms["signupForm"];
 
@@ -2211,6 +2214,9 @@ https://templatemo.com/tm-583-festava-live
         }).then(()=>{window.location.reload()}).catch((err)=>{
             console.log(err);
         })
+
+            }
+            
         </script>
 
         <script>
