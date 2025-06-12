@@ -1666,11 +1666,11 @@ https://templatemo.com/tm-583-festava-live
                                 <div class="tab-pane fade show active"
                                     id="nav-ContactForm" role="tabpanel"
                                     aria-labelledby="nav-ContactForm-tab">
-                                    <form onsubmit="handleSubmit()"
+                                    <form onsubmit="handleSubmit(event)"
                                         id="signup-form"
                                         name="signupForm"
                                         class="custom-form contact-form mb-5 mb-lg-0"
-                                        action="https://script.google.com/macros/s/AKfycbx62BkoxxYV0gOEvDPJhM8_fmeOUuC2mM8HGHLVTXlDMtvb6H9U01LOitln06T3D5Zj/exec"
+                                        action="#"
                                         method="POST" role="form">
                                         <div class="contact-form-body">
                                             <div class="row">
@@ -2200,7 +2200,7 @@ https://templatemo.com/tm-583-festava-live
 
         <script>
 
-            function handleSubmit(e){
+            function handleSubmit(e) {
                 e.preventDefault();
                 const scriptUrl = "https://script.google.com/macros/s/AKfycbx62BkoxxYV0gOEvDPJhM8_fmeOUuC2mM8HGHLVTXlDMtvb6H9U01LOitln06T3D5Zj/exec"
 
