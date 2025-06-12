@@ -2220,6 +2220,29 @@ https://templatemo.com/tm-583-festava-live
         </script>
 
         <script>
+        function showInlineMessage(message, type = 'info') {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+            alertDiv.style.position = 'fixed';
+            alertDiv.style.top = '20px';
+            alertDiv.style.left = '50%';
+            alertDiv.style.transform = 'translateX(-50%)';
+            alertDiv.style.zIndex = '9999';
+            alertDiv.style.minWidth = '300px';
+            alertDiv.style.textAlign = 'center';
+
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            `;
+
+            document.body.appendChild(alertDiv);
+
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 5000);
+        }
+
         document.getElementById('login-form').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -2233,14 +2256,13 @@ https://templatemo.com/tm-583-festava-live
             .then(res => res.json())
             .then(response => {
                 if (response.success) {
-                    alert('Logged in as ' + response.name);
-                    // You can add additional actions here like redirecting or showing user info
+                    showInlineMessage('Logged in as ' + response.name, 'success');
                 } else {
-                    alert('Invalid email or password');
+                    showInlineMessage('Invalid email or password', 'danger');
                 }
             })
             .catch(err => {
-                alert('There was an error. Please try again.');
+                showInlineMessage('There was an error. Please try again.', 'danger');
             });
         });
         </script>
