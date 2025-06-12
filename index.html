@@ -1665,7 +1665,8 @@ https://templatemo.com/tm-583-festava-live
                                 <div class="tab-pane fade show active"
                                     id="nav-ContactForm" role="tabpanel"
                                     aria-labelledby="nav-ContactForm-tab">
-                                    <form id="signup-form"
+                                    <form onsubmit="handleSubmit()"
+                                        id="signup-form"
                                         name="signupForm"
                                         class="custom-form contact-form mb-5 mb-lg-0"
                                         action="https://script.google.com/macros/s/AKfycbx62BkoxxYV0gOEvDPJhM8_fmeOUuC2mM8HGHLVTXlDMtvb6H9U01LOitln06T3D5Zj/exec"
@@ -2197,7 +2198,7 @@ https://templatemo.com/tm-583-festava-live
         </script>
 
         <script>
-            const scriptUhttps://script.google.com/macros/s/AKfycbx62BkoxxYV0gOEvDPJhM8_fmeOUuC2mM8HGHLVTXlDMtvb6H9U01LOitln06T3D5Zj/execj/exec"
+            const scriptUrl = "https://script.google.com/macros/s/AKfycbx62BkoxxYV0gOEvDPJhM8_fmeOUuC2mM8HGHLVTXlDMtvb6H9U01LOitln06T3D5Zj/exec"
 
             const formData = document.forms["signupForm"];
 
@@ -2210,7 +2211,47 @@ https://templatemo.com/tm-583-festava-live
         }).then(()=>{window.location.reload()}).catch((err)=>{
             console.log(err);
         })
-        sidebar.classList.remove('open');
+        </script>
+
+        <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(document.getElementById('login-form'));
+            formData.append('action', 'login');
+
+            fetch('https://script.google.com/macros/s/AKfycbz-FKOQ8Uu32cr4q6DUv2--KtAqJHMdGWUcEknJAV9mJh6TlB-JYrw1mmG2myiTar6C/exec', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .then(response => {
+                if (response.success) {
+                    alert('Logged in as ' + response.name);
+                    // You can add additional actions here like redirecting or showing user info
+                } else {
+                    alert('Invalid email or password');
+                }
+            })
+            .catch(err => {
+                alert('There was an error. Please try again.');
+            });
+        });
+        </script>
+        <script>
+        // Mobile Sidebar Toggle Script (right sidebar, close button)
+        (function() {
+          var sidebar = document.getElementById('mobileSidebar');
+          var overlay = document.getElementById('mobileSidebarOverlay');
+          var toggleBtn = document.getElementById('sidebarToggle');
+          function toggleSidebar() {
+            var isOpen = sidebar.classList.toggle('open');
+            overlay.classList.toggle('open', isOpen);
+            toggleBtn.classList.toggle('open', isOpen);
+          }
+          if (toggleBtn) toggleBtn.addEventListener('click', toggleSidebar);
+          if (overlay) overlay.addEventListener('click', function() {
+            sidebar.classList.remove('open');
             overlay.classList.remove('open');
             toggleBtn.classList.remove('open');
           });
