@@ -1,0 +1,68 @@
+/* Directory Page Styles */
+
+body {
+    background-color: #f8f9fa;
+}
+
+.directory-section {
+    padding-top: 120px;
+}
+
+#memberSearch {
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 25px;
+    padding: 10px 20px;
+    border: 1px solid #ced4da;
+}
+
+#member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.member-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.member-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid #e9ecef;
+}
+
+.member-card h5 {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.member-card p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.member-social a {
+    color: #007bff;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.member-social a:hover {
+    color: #0056b3;
+} 
