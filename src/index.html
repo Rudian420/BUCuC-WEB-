@@ -18,12 +18,8 @@
             href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap"
             rel="stylesheet">
 
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
-
-        <link href="css/templatemo-festava-live.css" rel="stylesheet">
-
+<link rel="stylesheet" href="./src/assets/css/variables.css">
+        <link rel="stylesheet" href="./src/assets/css/components.css">
         <!-- Swiper CSS -->
         <link rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -2104,11 +2100,25 @@ https://templatemo.com/tm-583-festava-live
         </footer>
 
         <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.sticky.js"></script>
-        <script src="js/click-scroll.js"></script>
-        <script src="js/custom.js"></script>
+<script src="./src/assets/js/jquery.min.js"></script>
+        <script src="./src/assets/js/bootstrap.min.js"></script>
+        <script src="./src/assets/js/jquery.sticky.js"></script>
+        <script src="./src/assets/js/click-scroll.js"></script>
+        <script src="./src/assets/js/apps-script.js"></script>
+        <script type="module">
+          import { Navigation } from './src/components/Navigation.js';
+          import { MemberCard, EventCard } from './src/components/Cards.js';
+
+          import { fetchData } from './src/utils/helpers.js';
+
+          document.addEventListener('DOMContentLoaded', async () => {
+            const membersContainer = document.querySelector('#members-container');
+            MemberCard.loadMembers('./src/data/sb-members.json', membersContainer);
+
+            const eventsContainer = document.querySelector('#events-container');
+            EventCard.loadEvents('./src/data/events.json', eventsContainer);
+          });
+        </script>
         <script src="js/apps-script.js"></script>
 
         <!-- Swiper JS -->
